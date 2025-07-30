@@ -18,10 +18,13 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Salesforce CLI and Delta plugin
+      - name: Install Salesforce CLI (via npm)
         run: |
           npm install -g @salesforce/cli
-          sf plugins install sfdx-delta
+          sf update
+
+      - name: Install Delta plugin (stable version)
+        run: sf plugins install sfdx-git-delta@5.4.1
 
       - name: Authenticate with JWT
         env:
@@ -38,7 +41,7 @@ jobs:
             --set-default
           rm server.key
 
-      - name: Detect changed metadata using Delta
+      - name: Generate delta package
         run: |
           PREVIOUS_SHA=${{ github.event.before }}
           if [ -z "$PREVIOUS_SHA" ]; then
@@ -48,11 +51,11 @@ jobs:
           mkdir delta-out
 
           sf delta package \
+            --from "$PREVIOUS_SHA" \
             --to ${{ github.sha }} \
-            --from $PREVIOUS_SHA \
             --output delta-out
 
-      - name: Deploy delta package
+      - name: Deploy delta metadata
         run: |
           sf project deploy start \
             --source-dir delta-out \
