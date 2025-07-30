@@ -3,7 +3,7 @@ name: Salesforce Deployment
 on:
   push:
     branches:
-      - main  # or your deployment branch
+      - main
 
 jobs:
   deploy:
@@ -36,9 +36,23 @@ jobs:
             --set-default
           rm server.key
 
-      - name: Deploy to Salesforce
+      - name: Detect changed metadata
+        id: changes
         run: |
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep "^force-app/" || true)
+          echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
+
+      - name: Deploy only changed metadata
+        if: env.CHANGED_FILES != ''
+        run: |
+          mkdir changed-md
+          for file in $CHANGED_FILES; do
+            mkdir -p changed-md/$(dirname $file)
+            cp $file changed-md/$file
+          done
+
           sf project deploy start \
+            --source-dir changed-md \
             --target-org target-org \
             --test-level RunLocalTests \
             --wait 30
