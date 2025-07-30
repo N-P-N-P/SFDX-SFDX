@@ -28,7 +28,7 @@ H224Bt8=</certificate>
     <isConsumerSecretOptional>false</isConsumerSecretOptional>
     <isDeviceFlowEnabled>false</isDeviceFlowEnabled>
     <isIntrospectAllTokens>false</isIntrospectAllTokens>
-    <isNamedUserJwtEnabled>true</isNamedUserJwtEnabled>
+    <isNamedUserJwtEnabled>false</isNamedUserJwtEnabled>
     <isPkceRequired>true</isPkceRequired>
     <isRefreshTokenRotationEnabled>false</isRefreshTokenRotationEnabled>
     <isSecretRequiredForRefreshToken>true</isSecretRequiredForRefreshToken>
