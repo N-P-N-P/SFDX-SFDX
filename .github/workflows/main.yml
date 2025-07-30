@@ -12,19 +12,21 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Important for delta plugin to access full commit history
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Install Salesforce CLI (via npm)
+      - name: Install Salesforce CLI via npm
         run: |
           npm install -g @salesforce/cli
           sf update
 
-      - name: Install Delta plugin (stable version)
-        run: sf plugins install sfdx-git-delta@5.4.1
+      - name: Install sfdx-git-delta plugin
+        run: echo y | sf plugins install sfdx-git-delta@6.13.1
 
       - name: Authenticate with JWT
         env:
@@ -50,10 +52,11 @@ jobs:
 
           mkdir delta-out
 
-          sf delta package \
+          sf sgd source delta \
             --from "$PREVIOUS_SHA" \
             --to ${{ github.sha }} \
-            --output delta-out
+            --generate-delta \
+            --output-dir delta-out
 
       - name: Deploy delta metadata
         run: |
