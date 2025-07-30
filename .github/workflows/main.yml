@@ -39,16 +39,26 @@ jobs:
       - name: Detect changed metadata
         id: changes
         run: |
-          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep "^force-app/" || true)
-          echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
+          PREVIOUS_SHA=${{ github.event.before }}
+          if [ -z "$PREVIOUS_SHA" ]; then
+            PREVIOUS_SHA=$(git rev-parse HEAD~1)
+          fi
+
+          CHANGED_FILES=$(git diff --name-only "$PREVIOUS_SHA" ${{ github.sha }} | grep "^force-app/" || true)
+
+          echo "CHANGED_FILES<<EOF" >> $GITHUB_ENV
+          echo "$CHANGED_FILES" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Print changed files (for debug)
+        run: echo "$CHANGED_FILES"
 
       - name: Deploy only changed metadata
         if: env.CHANGED_FILES != ''
         run: |
-          mkdir changed-md
+          mkdir -p changed-md
           for file in $CHANGED_FILES; do
-            mkdir -p changed-md/$(dirname $file)
-            cp $file changed-md/$file
+            rsync -R "$file" changed-md/
           done
 
           sf project deploy start \
