@@ -1,0 +1,44 @@
+name: Salesforce Deployment
+
+on:
+  push:
+    branches:
+      - main  # or your deployment branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Salesforce CLI
+        run: npm install -g @salesforce/cli
+
+      - name: Authenticate with JWT
+        env:
+          SFDX_JWT_KEY: ${{ secrets.SFDX_JWT_KEY }}
+          SFDX_CLIENT_ID: ${{ secrets.SFDX_CLIENT_ID }}
+          SF_USERNAME: ${{ secrets.SF_USERNAME }}
+        run: |
+          echo "$SFDX_JWT_KEY" > server.key
+          sf org login jwt \
+            --client-id "$SFDX_CLIENT_ID" \
+            --jwt-key-file server.key \
+            --username "$SF_USERNAME" \
+            --alias target-org \
+            --set-default
+          rm server.key
+
+      - name: Deploy to Salesforce
+        run: |
+          sf project deploy start \
+            --target-org target-org \
+            --test-level RunLocalTests \
+            --wait 30
