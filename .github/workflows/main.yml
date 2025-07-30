@@ -1,4 +1,4 @@
-name: Salesforce Deployment
+name: Salesforce Delta Deployment
 
 on:
   push:
@@ -18,8 +18,10 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Salesforce CLI
-        run: npm install -g @salesforce/cli
+      - name: Install Salesforce CLI and Delta plugin
+        run: |
+          npm install -g @salesforce/cli
+          sf plugins install sfdx-delta
 
       - name: Authenticate with JWT
         env:
@@ -36,33 +38,24 @@ jobs:
             --set-default
           rm server.key
 
-      - name: Detect changed metadata
-        id: changes
+      - name: Detect changed metadata using Delta
         run: |
           PREVIOUS_SHA=${{ github.event.before }}
           if [ -z "$PREVIOUS_SHA" ]; then
             PREVIOUS_SHA=$(git rev-parse HEAD~1)
           fi
 
-          CHANGED_FILES=$(git diff --name-only "$PREVIOUS_SHA" ${{ github.sha }} | grep "^force-app/" || true)
+          mkdir delta-out
 
-          echo "CHANGED_FILES<<EOF" >> $GITHUB_ENV
-          echo "$CHANGED_FILES" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          sf delta package \
+            --to ${{ github.sha }} \
+            --from $PREVIOUS_SHA \
+            --output delta-out
 
-      - name: Print changed files (for debug)
-        run: echo "$CHANGED_FILES"
-
-      - name: Deploy only changed metadata
-        if: env.CHANGED_FILES != ''
+      - name: Deploy delta package
         run: |
-          mkdir -p changed-md
-          for file in $CHANGED_FILES; do
-            rsync -R "$file" changed-md/
-          done
-
           sf project deploy start \
-            --source-dir changed-md \
+            --source-dir delta-out \
             --target-org target-org \
             --test-level RunLocalTests \
             --wait 30
