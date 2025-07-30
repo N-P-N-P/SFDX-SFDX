@@ -197,3 +197,83 @@ jobs:
             --source-dir delta-out \
             --target-org target-org \
             --test-level RunLocalT
+
+## If git is getting changes even salesforce deployment is happning then
+name: Salesforce Delta Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout full repository history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Ensure all commits are available for delta comparison
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: 🧰 Install Salesforce CLI via npm
+        run: |
+          npm install -g @salesforce/cli
+          sf update
+
+      - name: 📦 Install Delta plugin (stable version)
+        run: echo y | sf plugins install sfdx-git-delta@6.13.1
+
+      - name: 🔐 Authenticate to Salesforce via JWT
+        env:
+          SFDX_JWT_KEY: ${{ secrets.SFDX_JWT_KEY }}
+          SFDX_CLIENT_ID: ${{ secrets.SFDX_CLIENT_ID }}
+          SF_USERNAME: ${{ secrets.SF_USERNAME }}
+        run: |
+          echo "$SFDX_JWT_KEY" > server.key
+          sf org login jwt \
+            --client-id "$SFDX_CLIENT_ID" \
+            --jwt-key-file server.key \
+            --username "$SF_USERNAME" \
+            --alias target-org \
+            --set-default
+          rm server.key
+
+      - name: 🔎 Generate delta package
+        run: |
+          PREVIOUS_SHA=${{ github.event.before }}
+          if [ -z "$PREVIOUS_SHA" ]; then
+            PREVIOUS_SHA=$(git rev-parse HEAD~1)
+          fi
+
+          mkdir -p delta-out
+
+          sf sgd source delta \
+            --from "$PREVIOUS_SHA" \
+            --to ${{ github.sha }} \
+            --generate-delta \
+            --output-dir delta-out
+
+      - name: 🚫 Stop if no delta files
+        run: |
+          if [ -z "$(ls -A delta-out)" ]; then
+            echo "No metadata changes to deploy."
+            exit 1
+          fi
+
+      - name: 🚀 Deploy changed metadata (delta)
+        run: |
+          sf project deploy start \
+            --source-dir delta-out \
+            --target-org target-org \
+            --test-level RunLocalTests \
+            --wait 30
+
+      - name: 📣 Notify if deployment fails
+        if: failure()
+        run: echo "Deployment failed! Consider reverting or notifying the team."
