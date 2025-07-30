@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salesforce_Manual_Configuration</fullName>
+    <active>true</active>
+    <label>Salesforce Manual Configuration</label>
+    <picklistValues>
+        <picklist>Apply_To__c</picklist>
+        <values>
+            <fullName>All Environment In Pipeline</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Specific Environment In Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Notify_Task_Owner__c</picklist>
+        <values>
+            <fullName>Akshay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Komathi</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Poonam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sanath</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Perform_Deployment_Task__c</picklist>
+        <values>
+            <fullName>After Deployment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Before Deployment</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incomplete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promote To Prod</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promote To SIT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promote To UAT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promoted To Prod</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promoted To SIT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promoted To UAT</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Apex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Custom Settings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data load</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manual Task</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Apply To --></label>
+    <name>Apply_To__c</name>
+    <picklistValues>
+        <masterLabel>All Environment In Pipeline</masterLabel>
+        <translation><!-- All Environment In Pipeline --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Specific Environment In Pipeline</masterLabel>
+        <translation><!-- Specific Environment In Pipeline --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

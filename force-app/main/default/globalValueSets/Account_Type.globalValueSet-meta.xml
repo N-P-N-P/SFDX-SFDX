@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Savings Account</fullName>
+        <default>false</default>
+        <label>Savings Account</label>
+    </customValue>
+    <customValue>
+        <fullName>Current Account</fullName>
+        <default>false</default>
+        <label>Current Account</label>
+    </customValue>
+    <customValue>
+        <fullName>MOD</fullName>
+        <default>false</default>
+        <label>MOD</label>
+    </customValue>
+    <customValue>
+        <fullName>RD</fullName>
+        <default>false</default>
+        <label>RD</label>
+    </customValue>
+    <customValue>
+        <fullName>FD</fullName>
+        <default>false</default>
+        <label>FD</label>
+    </customValue>
+    <masterLabel>Account Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

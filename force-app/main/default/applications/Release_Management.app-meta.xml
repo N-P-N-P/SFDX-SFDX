@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Release Management</label>
+    <navType>Console</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Salesforce_Deployment_Task</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Deployment_Task__c</pageOrSobjectType>
+        <recordType>Deployment_Task__c.Salesforce_Manual_Configuration</recordType>
+        <type>Flexipage</type>
+        <profile>Release Management</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Salesforce_Deployment_Task</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Deployment_Task__c</pageOrSobjectType>
+        <recordType>Deployment_Task__c.Salesforce_Manual_Configuration</recordType>
+        <type>Flexipage</type>
+        <profile>Release Management</profile>
+    </profileActionOverrides>
+    <tabs>User_Story__c</tabs>
+    <tabs>Deployment_Task__c</tabs>
+    <tabs>Release__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Release_Management_UtilityBar</utilityBar>
+    <workspaceConfig>
+        <mappings>
+            <tab>Deployment_Task__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Release__c</tab>
+        </mappings>
+        <mappings>
+            <tab>User_Story__c</tab>
+        </mappings>
+    </workspaceConfig>
+</CustomApplication>

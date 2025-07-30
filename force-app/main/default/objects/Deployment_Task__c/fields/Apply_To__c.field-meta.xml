@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Apply_To__c</fullName>
+    <label>Apply To</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>All Environment In Pipeline</fullName>
+                <default>true</default>
+                <label>All Environment In Pipeline</label>
+            </value>
+            <value>
+                <fullName>Specific Environment In Pipeline</fullName>
+                <default>false</default>
+                <label>Specific Environment In Pipeline</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

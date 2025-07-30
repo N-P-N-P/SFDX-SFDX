@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Release_Version__c</fullName>
+    <label>Release Version</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Release 1</fullName>
+                <default>false</default>
+                <label>Release 1</label>
+            </value>
+            <value>
+                <fullName>Release 2</fullName>
+                <default>false</default>
+                <label>Release 2</label>
+            </value>
+            <value>
+                <fullName>Release 3</fullName>
+                <default>false</default>
+                <label>Release 3</label>
+            </value>
+            <value>
+                <fullName>Release 4</fullName>
+                <default>false</default>
+                <label>Release 4</label>
+            </value>
+            <value>
+                <fullName>Release 5</fullName>
+                <default>false</default>
+                <label>Release 5</label>
+            </value>
+            <value>
+                <fullName>Release 6</fullName>
+                <default>false</default>
+                <label>Release 6</label>
+            </value>
+            <value>
+                <fullName>Release 7</fullName>
+                <default>false</default>
+                <label>Release 7</label>
+            </value>
+            <value>
+                <fullName>Release 8</fullName>
+                <default>false</default>
+                <label>Release 8</label>
+            </value>
+            <value>
+                <fullName>Release 9</fullName>
+                <default>false</default>
+                <label>Release 9</label>
+            </value>
+            <value>
+                <fullName>Release 10</fullName>
+                <default>false</default>
+                <label>Release 10</label>
+            </value>
+            <value>
+                <fullName>Release 11</fullName>
+                <default>false</default>
+                <label>Release 11</label>
+            </value>
+            <value>
+                <fullName>Release 12</fullName>
+                <default>false</default>
+                <label>Release 12</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

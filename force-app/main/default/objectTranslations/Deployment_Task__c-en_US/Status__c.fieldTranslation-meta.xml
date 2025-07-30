@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Status --></label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Completed</masterLabel>
+        <translation><!-- Completed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Draft</masterLabel>
+        <translation><!-- Draft --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Incomplete</masterLabel>
+        <translation><!-- Incomplete --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Promote To Prod</masterLabel>
+        <translation><!-- Promote To Prod --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Promote To SIT</masterLabel>
+        <translation><!-- Promote To SIT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Promote To UAT</masterLabel>
+        <translation><!-- Promote To UAT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Promoted To Prod</masterLabel>
+        <translation><!-- Promoted To Prod --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Promoted To SIT</masterLabel>
+        <translation><!-- Promoted To SIT --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Promoted To UAT</masterLabel>
+        <translation><!-- Promoted To UAT --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Notify Task Owner --></label>
+    <name>Notify_Task_Owner__c</name>
+    <picklistValues>
+        <masterLabel>Akshay</masterLabel>
+        <translation><!-- Akshay --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Komathi</masterLabel>
+        <translation><!-- Komathi --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Poonam</masterLabel>
+        <translation><!-- Poonam --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sanath</masterLabel>
+        <translation><!-- Sanath --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

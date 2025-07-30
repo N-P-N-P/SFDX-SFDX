@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invalid_Email_Format</fullName>
+    <active>true</active>
+    <description>Please enter email id in the format of xyz@gmail.com</description>
+    <errorConditionFormula>ISBLANK(Student_Email_Id__c)</errorConditionFormula>
+    <errorDisplayField>Course__c</errorDisplayField>
+    <errorMessage>Please enter email id in the format of xyz@gmail.com</errorMessage>
+</ValidationRule>

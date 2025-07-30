@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Release Version --></label>
+    <name>Release_Version__c</name>
+    <picklistValues>
+        <masterLabel>Release 1</masterLabel>
+        <translation><!-- Release 1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release 10</masterLabel>
+        <translation><!-- Release 10 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release 11</masterLabel>
+        <translation><!-- Release 11 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release 12</masterLabel>
+        <translation><!-- Release 12 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release 2</masterLabel>
+        <translation><!-- Release 2 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release 3</masterLabel>
+        <translation><!-- Release 3 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release 4</masterLabel>
+        <translation><!-- Release 4 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release 5</masterLabel>
+        <translation><!-- Release 5 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release 6</masterLabel>
+        <translation><!-- Release 6 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release 7</masterLabel>
+        <translation><!-- Release 7 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release 8</masterLabel>
+        <translation><!-- Release 8 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Release 9</masterLabel>
+        <translation><!-- Release 9 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

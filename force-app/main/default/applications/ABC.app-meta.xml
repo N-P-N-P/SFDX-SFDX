@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>Abc_Logo_Images_Browse_617_Stock</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <description>Banking Company</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>ABC</label>
+    <navType>Standard</navType>
+    <tabs>Bank_Account__c</tabs>
+    <tabs>Credit_Card__c</tabs>
+    <tabs>Debit_Card__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>ABC_UtilityBar</utilityBar>
+</CustomApplication>

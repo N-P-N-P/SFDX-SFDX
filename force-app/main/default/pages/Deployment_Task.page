@@ -1,0 +1,10 @@
+<apex:page Standardcontroller="Account">
+<apex:form >
+<apex:sectionHeader title="Geetham" subtitle="Pure Veg" help="If u get Non veg, please ping"/>
+<apex:pageBlock title="Geetham Specials">
+    <apex:pageBlockSection title="Veg Items" collapsible="false">
+        <apex:inputField value="{!Account.Name}"/>
+    </apex:pageBlockSection>
+</apex:pageBlock>
+</apex:form>
+</apex:page>
