@@ -4,7 +4,7 @@ public class DeploymentTaskTest {
     // Test before insert
     @isTest
     static void testBeforeInsert() {
-        // Create a new Deployment_Task__c record with some blank field
+        // Create a new Deployment_Task__c record with some blank fields
         Deployment_Task__c dt = new Deployment_Task__c(
             Name = 'Test Task',
             Task_Description__c = 'Manual Task',  // Blank Task Description
